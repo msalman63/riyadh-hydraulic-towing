@@ -20,13 +20,28 @@ Production website for a hydraulic towing service based in Riyadh, Saudi Arabia.
 - SEO optimized meta tags
 
 ## Structure
+
+```
 src/app/
-├── components/        # navbar, hero, services, about, why,
-│                      # coverage, gallery, contact, footer, floating-buttons
-├── core/services/     # language.service, scroll.service
-├── data/              # typed static data (constants, translations)
-├── interfaces/        # TypeScript interfaces
-└── constants/         # brand, phone, social URLs
+├── components/
+│   ├── navbar
+│   ├── hero
+│   ├── services
+│   ├── about
+│   ├── why
+│   ├── coverage
+│   ├── gallery
+│   ├── contact
+│   ├── footer
+│   └── floating-buttons
+├── core/
+│   └── services/
+│       ├── language.service
+│       └── scroll.service
+├── interfaces/
+├── data/
+└── constants/
+```
 
 ## Local Development
 
