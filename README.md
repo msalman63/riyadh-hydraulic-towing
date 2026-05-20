@@ -1,59 +1,56 @@
-# RiyadhHydraulicTowing
+# Riyadh Hydraulic Towing — سطحة هيدروليك الرياض
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.13.
+Production website for a hydraulic towing service based in Riyadh, Saudi Arabia.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+- Angular 21 (standalone components, signals)
+- Tailwind CSS v4
+- TypeScript
+- Deployed on Vercel
+
+## Features
+
+- Bilingual — Arabic (RTL) + English (LTR)
+- Mobile-first, fully responsive
+- Smooth scroll SPA — no routing
+- Language switcher with localStorage persistence
+- Floating WhatsApp + Call buttons
+- Google Maps embed
+- SEO optimized meta tags
+
+## Structure
+src/app/
+├── components/        # navbar, hero, services, about, why,
+│                      # coverage, gallery, contact, footer, floating-buttons
+├── core/services/     # language.service, scroll.service
+├── data/              # typed static data (constants, translations)
+├── interfaces/        # TypeScript interfaces
+└── constants/         # brand, phone, social URLs
+
+## Local Development
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Production Build
 
 ```bash
-ng generate component component-name
+ng build --configuration production
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Output → `dist/riyadh-hydraulic-towing/browser`
 
-```bash
-ng generate --help
-```
+## Deployment
 
-## Building
+Hosted on Vercel. Every push to `main` triggers an automatic redeploy.
 
-To build the project run:
+## Notes
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- All colors reference CSS variables defined in `styles.css`
+- Translations managed via `TRANSLATIONS` constant — no i18n library
+- Data is fully typed — ready for Supabase migration later
