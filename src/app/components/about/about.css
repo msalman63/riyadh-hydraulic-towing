@@ -1,0 +1,6 @@
+.top-amberline{
+    background: linear-gradient(to right, transparent, var(--amber-dark), transparent);
+}
+.bottom-line{
+    background: linear-gradient(to right, transparent, var(--zinc-800), transparent)
+}

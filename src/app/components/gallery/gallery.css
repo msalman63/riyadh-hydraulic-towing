@@ -1,0 +1,12 @@
+.top-line {
+  background: linear-gradient(to right, transparent, var(--amber-dark), transparent);
+}
+.dark-overlay {
+  background: linear-gradient(to top, var(--black) 0%, transparent 60%);
+}
+.amber-corner {
+  background: linear-gradient(to right, transparent, var(--amber), transparent);
+}
+.botton-line {
+  background: linear-gradient(to right, transparent, var(--zinc-800), transparent);
+}

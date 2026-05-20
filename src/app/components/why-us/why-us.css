@@ -1,0 +1,6 @@
+.ambient-glow{
+    background: radial-gradient(ellipse 60% 40% at 50% 50%, var(--amber-glow), transparent)
+}
+.top-amber-line{
+    background: linear-gradient(to right, transparent, var(--amber), transparent)
+}

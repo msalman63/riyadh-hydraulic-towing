@@ -1,0 +1,68 @@
+<!-- SERVICES SECTION -->
+<section id="services" class="relative py-24 overflow-hidden bg-(--zinc-950)">
+  <!--  Background accent -->
+  <div class="background1 absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- SECTION HEADER -->
+    <div class="text-center mb-16 flex flex-col items-center gap-4">
+      <!-- Tag pill — small label above title -->
+      <span
+        class="inline-flex items-center bg-(--amber-glow) border border-(--amber-dark) [font-family: var(--font-ar)] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest"
+      >
+        {{ languageService.tKey('servicesTag') }}
+      </span>
+
+      <!-- Section title -->
+      <h2
+        class="font-black leading-tight [font-family: var(--font-ar)] text-[clamp(1.8rem, 5vw, 2.8rem)] text-(--white)"
+      >
+        {{ languageService.tKey('servicesTitle') }}
+      </h2>
+
+      <!-- Section description -->
+      <p
+        class="max-w-2xl leading-relaxed text-[clamp(1.8rem, 5vw, 2.8rem)] [font-family: var(--font-ar)] text-(--zinc-400)"
+      >
+        {{ languageService.tKey('servicesDesc') }}
+      </p>
+    </div>
+
+    <!-- SERVICES GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      @for (service of services; track service.id) {
+        <!-- Service Card -->
+        <div
+          class="group bg-(--zinc-900) border border-(--zinc-800) relative flex flex-col gap-4 p-6 rounded-2xl cursor-pointer hover:border-(--amber-dark) hover:bg-(--zinc-800) hover:-translate-y-1 hover:shadow-(--amber-glow) transition-all duration-300"
+        >
+          <!-- Icon container -->
+          <div
+            class="w-14 h-14 bg-(--amber-glow) border border-(--amber-dark) flex items-center justify-center rounded-sm text-2xl shrink-0"
+          >
+            {{ service.icon }}
+          </div>
+
+          <!-- Card content -->
+          <div class="flex flex-col gap-2">
+            <!-- Service title -->
+            <h3
+              class="font-bold leading-snug [font-family:var(--font-ar)] text-[1.05rem] text-(--white)"
+            >
+              {{ languageService.tr(service.title) }}
+            </h3>
+
+            <!-- Service description -->
+            <p class="leading-relaxed text-sm [font-family:var(--font-ar)] text-(--zinc-400)">
+              {{ languageService.tr(service.description) }}
+            </p>
+          </div>
+
+          <!-- Bottom amber line -->
+          <div
+            class="bottom-amberline absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+          ></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

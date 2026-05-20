@@ -1,0 +1,109 @@
+<!-- ABOUT SECTION -->
+<section id="about" class="relative py-24 overflow-hidden bg-(--zinc-900)">
+  <!--  Top separator line  -->
+  <div class="top-amberline absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- TWO COLUMN LAYOUT -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!--  LEFT COLUMN — Brand Info -->
+      <div class="flex flex-col gap-8">
+        <!-- Tag & Title & Description -->
+        <div class="flex flex-col gap-4">
+          <!-- Tag pill -->
+          <span
+            class="bg-(--amber-glow) inline-flex w-fit items-center px-4 py-1.5 border border-(--amber-dark) [border border-(--amber-dark)] text-(--amber) rounded-full text-xs font-bold uppercase tracking-widest"
+          >
+            {{ languageService.tKey('aboutTag') }}
+          </span>
+
+          <!-- Section title -->
+          <h2
+            class="font-black leading-tight text-[clamp(1.8rem, 4vw, 2.6rem)] [font-family: var(--font-ar)] text-(--white)"
+          >
+            {{ languageService.tKey('aboutTitle') }}
+          </h2>
+
+          <!-- Description -->
+          <p
+            class="leading-relaxed [font-family: var(--font-ar)] text-[clamp(0.9rem, 2vw, 1rem)] text-(--zinc-400)"
+          >
+            {{ languageService.tKey('aboutDesc') }}
+          </p>
+        </div>
+
+        <!-- Stats Row  -->
+        <div
+          class="grid grid-cols-2 w-fit gap-px rounded-(--radius) border border-(--zinc-800) overflow-hidden"
+        >
+          <!-- Stat 1 — vehicles moved -->
+          <div class="flex flex-col bg-(--zinc-950) gap-1 px-8 py-5">
+            <span class="font-black text-3xl text-(--amber) [font-family: var(--font-en)]">
+              +5000
+            </span>
+            <span class="text-sm font-medium [font-family: var(--font-ar)] text-(--zinc-400)">
+              {{ languageService.tKey('aboutStat1') }}
+            </span>
+          </div>
+
+          <!-- Stat 2 — avg response -->
+          <div class="flex flex-col bg-(--zinc-950) gap-1 px-8 py-5">
+            <span class="font-black text-3xl text-(--amber) [font-family: var(--font-en)]">
+              15 دقيقة
+            </span>
+            <span class="text-sm font-medium text-(--zinc-400) [font-family: var(--font-ar)]">
+              {{ languageService.tKey('aboutStat2') }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Best in Riyadh Badge -->
+        <div class="flex flex-col gap-3">
+          <div
+            class="inline-flex w-fit bg-(--amber-glow) border border-(--amber-dark) rounded-(--radius) items-center gap-2 px-5 py-2.5"
+          >
+            <span style="font-size: 1.2rem">🏆</span>
+            <span class="text-sm text-(--amber) [font-family: var(--font-ar)] font-medium">
+              {{ languageService.tKey('aboutBadge') }}
+            </span>
+          </div>
+
+          <p class="text-sm text-(--zinc-600) [font-family: var(--font-ar)] font-medium">
+            +10 {{ languageService.tKey('aboutYears') }}
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN — Feature Cards -->
+      <div class="flex flex-col gap-4">
+        @for (feature of features; track feature.id) {
+          <!-- Feature Card -->
+          <div
+            class="flex bg-(--zinc-950) border rounded-(--radius) gap-5 p-6 hover:bg-(--amber-dark) hover:-translate-y-1 shadow-sm transition-all duration-300 cursor-pointer"
+          >
+            <!-- Icon -->
+            <div
+              class="w-12 h-12 bg-(--amber-glow) border border-(--amber-dark) flex items-center justify-center text-xl shrink-0 rounded-sm"
+            >
+              {{ feature.icon }}
+            </div>
+
+            <!-- Text -->
+            <div class="flex flex-col gap-1">
+              <h3 class="font-bold [font-family: var(--font-ar)] text-base text-(--white)">
+                {{ languageService.tr(feature.title) }}
+              </h3>
+
+              <p class="text-sm leading-relaxed [font-family: var(--font-ar)] text-(--zinc-400)">
+                {{ languageService.tr(feature.description) }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom separator line -->
+  <div class="bottom-line absolute bottom-0 left-0 right-0 h-px pointer-events-none"></div>
+</section>

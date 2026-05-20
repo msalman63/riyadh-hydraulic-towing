@@ -1,0 +1,127 @@
+<!--Emergency Strip - Using Language Service-->
+<div
+  class="text-xs sm:text-sm font-bold py-2 text-center tracking-wide bg-(--amber) text-(--black) [font-family:var(--font-ar)]"
+>
+  {{ languageService.tKey('emergencyStrip') }}
+</div>
+
+<!--Main Nav Bar-->
+
+<nav
+  [ngStyle]="{
+    background: isScrolled() ? 'rgba(24,24,27,0.97)' : 'rgba(24,24,27,0.85)',
+    'backdrop-filter': isScrolled() ? 'backdrop-filter: blur(12px)' : 'blur(6px)',
+    'box-shadow': isScrolled() ? '0 8px 32px rgba(0,0,0,0.4)' : '',
+    'border-bottom': isScrolled() ? '1px solid var(--zinc-800)' : '1px solid rgba(39,39,42,0.5)',
+  }"
+  class="sticky top-0 z-50 transition-all duration-300"
+>
+  <!--nav container-->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+    <!--Logo-->
+    <button (click)="navigateTo('home')" class="flex flex-col leading-tight shrink-0 group">
+      <!-- Arabic name - Big in Size-->
+      <span
+        class="font-black [font-family:var(--font-ar)] text-(--white) text-lg sm:text-xl transition-colors duration-200"
+      >
+        {{ brand.nameArShort }}
+      </span>
+
+      <!-- English name - small -->
+      <span
+        class="[font-family:var(--font-en)] text-(--amber) text-[10px] font-bold tracking-[0.2em] uppercase"
+      >
+        {{ brand.tagEn }}
+      </span>
+    </button>
+
+    <!--  DESKTOP NAV LINKS  -->
+    <ul class="hidden md:flex items-center gap-1">
+      @for (link of navLinks; track link.id) {
+        <li>
+          <button
+            (click)="navigateTo(link.fragment)"
+            class="px-3 py-2 text-sm text-(--zinc-400) [font-family:var(--font-ar)] font-medium rounded-lg transition-all duration-200 hover:text-(--white) hover:bg-(--zinc-800)"
+          >
+            {{ languageService.tr(link.label) }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <!--  DESKTOP ACTIONS - language toggle & Call Button -->
+    <div class="flex items-center gap-2 shrink-0">
+      <!--Arabic/Eng Toggle-->
+      <button
+        (click)="languageService.toggle()"
+        class="hidden sm:flex items-center px-3 py-1.5 rounded-full text-xs font-bold border border-(--zinc-300) text-(--zinc-300) [font-family:var(--font-en)] hover:border-(--amber) hover:text-(--amber) transition-all duration-200"
+      >
+        {{ languageService.isArabic() ? 'EN' : 'عر' }}
+      </button>
+
+      <!-- Call Now Button -->
+      <a
+        [href]="social.callUrl"
+        class="hidden bg-(--amber) sm:flex items-center gap-2 px-4 py-2 [font-family:var(--font-ar)] font-bold text-sm [box-shadow:0 4px 16px var(--amber-glow)] rounded-sm hover:bg-(--amber-light) transition-all duration-200"
+      >
+        <span>📞</span>
+        <span>{{ languageService.tKey('navCall') }}</span>
+      </a>
+
+      <!-- Burger Icon / Cross Icon (mobile only) -->
+      <button
+        (click)="onToggleMenu()"
+        aria-label="Toggle menu"
+        class="md:hidden p-2 transition-colors duration-200 rounded-sm hover:bg-(--zinc-800)"
+      >
+        <div class="menuIcon">
+          @if (!isMenuOpen()) {
+            <img class="w-8 h-8" src="images/icons/menu.png" alt="menu" />
+          }
+          @if (isMenuOpen()) {
+            <img class="w-8 h-8" src="images/icons/cross.png" alt="cross" />
+          }
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  @if (isMenuOpen()) {
+    <div
+      class="md:hidden px-4 pt-3 pb-5 flex flex-col gap-1 bg-(--zinc-900) border-t border-(--zinc-800)"
+    >
+      <!-- Mobile Nav Links -->
+      @for (link of navLinks; track link.id) {
+        <button
+          (click)="navigateTo(link.fragment)"
+          class="[font-family:var(--font-ar)] text-(--zinc-300) text-start w-full px-4 py-3 text-sm font-medium rounded-sm hover:text-(--white) hover:bg-(--zinc-800) transition-colors duration-200"
+        >
+          {{ languageService.tr(link.label) }}
+        </button>
+      }
+
+      <!-- Divider -->
+      <div class="my-2" style="border-top: 1px solid var(--zinc-800)"></div>
+
+      <!-- Language Toggle & Call Now -->
+      <div class="flex gap-2">
+        <!-- Language Toggle  -->
+        <button
+          (click)="languageService.toggle()"
+          class="flex-1 py-2.5 text-sm text-(--zinc-300) border border-(--zinc-700) font-bold rounded-sm hover:border-(--amber) hover:text-(--amber) transition-all duration-200"
+        >
+          {{ languageService.isArabic() ? 'English' : 'العربية' }}
+        </button>
+
+        <!-- Call Now  -->
+        <a
+          [href]="social.callUrl"
+          class="bg-(--amber) text-(--black) flex-1 py-2.5 text-center font-bold text-sm rounded-sm hover:bg(--amber-light) transition-all duration-200"
+        >
+          {{ languageService.tKey('navCall') }}
+        </a>
+      </div>
+    </div>
+  }
+</nav>

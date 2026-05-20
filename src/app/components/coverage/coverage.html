@@ -1,0 +1,145 @@
+<!-- COVERAGE SECTION -->
+<section id="coverage" class="relative py-24 overflow-hidden" style="background: var(--zinc-900)">
+  <!-- Top separator-->
+  <div class="top-amber-line absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- SECTION HEADER -->
+    <div class="text-center mb-16 flex flex-col items-center gap-4">
+      <!-- Tag pill -->
+      <span
+        class="bg-(--amber-glow) inline-flex items-center px-4 py-1.5 border border-(amber-dark) text-(--amber) [font-family: var(--font-ar)] rounded-full text-xs font-bold uppercase tracking-widest"
+      >
+        {{ languageService.tKey('coverageTag') }}
+      </span>
+
+      <!-- Title -->
+      <h2
+        class="font-black leading-tight [font-family: var(--font-ar)] text-[clamp(1.8rem, 5vw, 2.8rem)] text-(--white)"
+      >
+        {{ languageService.tKey('coverageTitle') }}
+      </h2>
+
+      <!-- Description -->
+      <p
+        class="max-w-2xl leading-relaxed text-[clamp(0.9rem, 2vw, 1rem)] [font-family: var(--font-ar)] text-(--zinc-400)"
+      >
+        {{ languageService.tKey('coverageDesc') }}
+      </p>
+    </div>
+
+    <!-- MAIN CONTENT-->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!--  LEFT — Coverage Cards Grid -->
+      <div class="flex flex-col gap-4">
+        <!-- First 5 areas — 2 column grid -->
+        <div class="grid grid-cols-2 gap-4">
+          @for (area of areas; track area.id) {
+            <!-- Skip last item (inter-city)-->
+            @if (area.id !== 6) {
+              <!-- Area Card -->
+              <div
+                class="bg-(--zinc-950) flex items-center gap-3 p-5 border border-(--zinc-800) rounded-(--radius) hover:border-(--amber-dark) hover:-translate-y-1 hover:shadow-[0 8px 24px var(--amber-glow)] transition-all duration-300 cursor-pointer"
+              >
+                <!-- Direction pin emoji -->
+                <span class="text-2xl shrink-0">{{ area.pin }}</span>
+
+                <!-- Area name — bilingual -->
+                <span
+                  class="font-bold text-sm leading-snug [font-family: var(--font-ar)] text-(--white)"
+                >
+                  {{ languageService.tr(area.name) }}
+                </span>
+              </div>
+            }
+          }
+        </div>
+
+        <!-- Inter-City card — full width -->
+        @for (area of areas; track area.id) {
+          @if (area.id === 6) {
+            <div
+              class="bg-(--amber-glow) border border-(--amber-dark) flex items-center gap-4 p-6 rounded-(--radius) hover:bg-[rgba(245,158,11,0.2)] hover:-translate-y-1 shadow-[0 8px 32px var(--amber-glow)] transition-all duration-300"
+            >
+              <span class="text-3xl shrink-0">{{ area.pin }}</span>
+
+              <div class="flex flex-col gap-1">
+                <span class="font-black text-base [font-family: var(--font-ar)] text-(--amber)">
+                  {{ languageService.tr(area.name) }}
+                </span>
+                <span class="text-xs font-medium [font-family: var(--font-ar)] text-(--amber-dark)">
+                  {{
+                    languageService.isArabic()
+                      ? 'من الرياض إلى أي مدينة في المملكة'
+                      : 'From Riyadh to any city in Saudi Arabia'
+                  }}
+                </span>
+              </div>
+            </div>
+          }
+        }
+      </div>
+
+      <!--  RIGHT — Map Placeholder + CTA 
+           Google Maps embed placeholder
+           Real map can be swapped in later -->
+      <div class="flex flex-col gap-4">
+        <!-- Map placeholder box -->
+        <div
+          class="h-80 bg-(--zinc-950) border border-(--zinc-800) relative w-full rounded-(--radius) overflow-hidden flex flex-col items-center justify-center gap-4 cursor-pointer"
+        >
+          <!-- Map grid pattern background -->
+          <div class="main-grid-bg absolute inset-0 pointer-events-none"></div>
+
+          <!-- Center pin -->
+          <div class="relative z-10 flex flex-col items-center gap-3">
+            <!-- Pulsing location pin -->
+            <div class="relative">
+              <div
+                class="bg-(--amber) w-12 h-12 rounded-full flex items-center justify-center text-2xl z-10 relative shadow-[0 0 0 8px var(--amber-glow)]"
+              >
+                📍
+              </div>
+              <!-- Ripple animation -->
+              <div class="absolute bg-(--amber-glow) inset-0 rounded-full animate-ping"></div>
+            </div>
+
+            <span
+              class="font-bold text-sm text-center [font-family: var(--font-ar)] text-(--zinc-300)"
+            >
+              {{ languageService.tKey('mapText') }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Open Google Maps button -->
+        <a
+          [href]="social.mapsUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-(--zinc-950) w-full flex items-center justify-center gap-2 py-4 border border-(--zinc-700) [font-family: var(--font-ar)] rounded-(--radius) font-bold text-sm hover:border-(--amber) hover:text-(--amber) hover:-translate-y-0.5 transition-all duration-200 active:scale-95"
+        >
+          <span>🗺️</span>
+          <span>{{ languageService.tKey('mapBtn') }}</span>
+        </a>
+
+        <!-- Coverage note card -->
+        <div
+          class="bg-(--zinc-950) flex items-start gap-3 p-4 border border-(--zinc-800) rounded-sm"
+        >
+          <span class="text-xl shrink-0 mt-0.5">🚛</span>
+          <p class="text-sm leading-relaxed [font-family: var(--font-ar)] text-(--zinc-400)">
+            {{
+              languageService.isArabic()
+                ? 'نصل إليك في جميع أحياء الرياض خلال 15 دقيقة في المتوسط — على مدار الساعة طوال أيام الأسبوع'
+                : 'We reach you across all Riyadh neighborhoods within 15 minutes on average — 24/7, every day of the week'
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Bottom separator  -->
+  <div class="bottom-line absolute bottom-0 left-0 right-0 h-px pointer-events-none"></div>
+</section>

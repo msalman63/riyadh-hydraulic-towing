@@ -1,0 +1,144 @@
+<!--Home Section-->
+<section
+  id="home"
+  class="relative flex flex-col justify-center overflow-hidden bg-(--zinc-950)">
+
+
+  <!--  Background Layer 1 -->
+  <div
+    class="background-layer absolute inset-0 pointer-events-none animate-pulse duration-500">
+  </div>
+
+  <!-- ── Background Layer 2: Dot grid pattern -->
+  <div
+    class="background-layer-2 absolute inset-0 pointer-events-none">
+  </div>
+
+  <!-- ── Background Layer 3: Bottom fade  -->
+  <div
+    class="background-layer-3 absolute bottom-0 left-0 right-0 h-40 pointer-events-none">
+  </div>
+
+
+  <!-- MAIN CONTENT  -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-24 flex flex-col items-center text-center gap-6">
+
+
+    <!-- Availability Badge -->
+    <div
+      class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-(--amber-glow) border border-(--amber-dark) text-(--amber-light) [font-family: var(--font-ar)]">
+      <!-- Pulsing green dot — signals live/active -->
+      <span
+        class="w-2 h-2 rounded-full animate-pulse bg-[#22c55e]">
+      </span>
+      {{ languageService.tKey('heroBadge') }}
+    </div>
+
+
+    <!-- Main Arabic Title -->
+    <h1 class="flex flex-col gap-1">
+
+      <!-- title 1 -->
+      <span
+        class="block font-black leading-tight [font-family: var(--font-ar)] text-[clamp(2.5rem,7vw,4.5rem)] font-bold text-(--white)">
+        {{ languageService.tKey('heroTitle1') }}
+      </span>
+
+      <!-- Line 2 — amber accent color -->
+      <span
+        class="block font-black leading-tight [font-family: var(--font-ar)] text-[clamp(2.5rem,7vw,4.5rem)] font-bold text-(--amber)">
+        {{ languageService.tKey('heroTitle2') }}
+      </span>
+
+    </h1>
+
+
+    <!-- English Subtitle -->
+    <p
+      class="block font-black tracking-wide [font-family: var(--font-ar)] text-[clamp(0.9rem, 2.5vw, 1.25rem)] font-bold text-(--zinc-400)">
+      {{ languageService.tKey('heroEnTitle') }}
+    </p>
+
+
+    <!--  Description -->
+    <p
+      class="max-w-2xl leading-relaxed [font-family: var(--font-ar)] text-[clamp(0.95rem, 2vw, 1.1rem)] font-bold text-(--zinc-300)">
+      {{ languageService.tKey('heroDesc') }}
+    </p>
+
+
+    <!--  Trust Badges Row 3 small pills: 24/7, Fast Arrival, Hydraulic -->
+    <div class="flex flex-wrap justify-center gap-3">
+      @for (badge of badges; track badge.icon) {
+        <span
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border border-(--zinc-700) [font-family: var(--font-ar)] text-(--zinc-300) bg-(zinc-800)">
+          <span>{{ badge.icon }}</span>
+          <span>{{ languageService.tr(badge.label) }}</span>
+        </span>
+      }
+    </div>
+
+
+    <!--  Call now Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mt-2">
+
+      <!-- Call Now -->
+      <a
+        [href]="social.callUrl"
+        class="
+       bg-(--amber) text-(--black) [font-family: var(--font-ar)] shadow-md inline-flex items-center gap-2 px-7 py-3.5 font-black text-base rounded-xl transition-all duration-200 active:scale-95 hover: bg-(--amber-light) hover:-translate-x-0.5">
+        <span>📞</span>
+        <span>{{ languageService.tKey('heroBtnCall') }}</span>
+      </a>
+
+      <!-- WhatsApp -->
+       <a
+        [href]="social.whatsappUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-transparent text-(--white) [font-family: var(--font-ar)] border-2 border-(--zinc-600) rounded-(--radius) inline-flex items-center gap-2 px-7 py-3.5 font-bold text-base transition-all duration-200 active:scale-95 hover:border-(--amber) text-(--amber) hover:-translate-x-0.5">
+        <span>💬</span>
+        <span>{{ languageService.tKey('heroBtnWa') }}</span>
+      </a>
+
+    </div>
+
+
+    <!--  Discover Services Button -->
+    <button
+      (click)="scrollService.scrollTo('services')"
+      class="inline-flex items-center gap-2 mt-1 text-sm font-medium text-(--zinc-400) [font-family: var(--font-ar)] transition-all duration-200 hover:texte-(--amber)">
+      <span>{{ languageService.tKey('heroBtnServices') }}</span>
+      <span class="animate-bounce">↓</span>
+    </button>
+
+
+    <!-- Stats Row -->
+    <div
+      class="w-full mt-6 grid grid-cols-2 md:grid-cols-4 gap-px border border-(--zinc-800) rounded-2xl overflow-hidden">
+
+      @for (stat of stats; track stat.number; let last = $last) {
+        <div
+          class="flex flex-col items-center gap-1 py-5 px-4 bg-(--zinc-900)">
+
+          <!-- Big number -->
+          <span
+            class="font-black leading-none text-(--amber) [font-family: var(--font-en)] text-[clamp(1.6rem, 4vw, 2rem)]">
+            {{ stat.number }}
+          </span>
+
+          <!-- Label — zinc, smaller -->
+          <span
+            class="text-xs font-medium text-center text-(--zinc-400) [font-family: var(--font-ar)]">
+            {{ languageService.tr(stat.label) }}
+          </span>
+
+        </div>
+      }
+
+    </div>
+
+
+  </div>
+
+</section>

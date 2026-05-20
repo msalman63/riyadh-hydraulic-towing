@@ -1,0 +1,11 @@
+.background-layer {
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, var(--amber-glow), transparent);
+}
+.background-layer-2 {
+  background: radial-gradient(circle, var(--zinc-700) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+}
+.background-layer-3{
+  background: linear-gradient(to bottom, transparent, var(--zinc-950))
+}

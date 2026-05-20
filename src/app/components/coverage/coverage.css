@@ -1,0 +1,13 @@
+.top-amber-line {
+  background: linear-gradient(to right, transparent, var(--amber-dark), transparent);
+}
+.main-grid-bg {
+  background-image:
+    linear-gradient(var(--zinc-800) 1px, transparent 1px),
+    linear-gradient(90deg, var(--zinc-800) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.4;
+}
+.bottom-line {
+  background: linear-gradient(to right, transparent, var(--zinc-800), transparent);
+}

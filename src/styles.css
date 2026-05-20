@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+:root {
+  --amber:       #F59E0B;
+  --amber-light: #FCD34D;
+  --amber-dark:  #D97706;
+  --amber-glow:  rgba(245, 158, 11, 0.15);
+  --black:       #0A0A0A;
+  --zinc-950:    #09090B;
+  --zinc-900:    #18181B;
+  --zinc-800:    #27272A;
+  --zinc-700:    #3F3F46;
+  --zinc-600:    #52525B;
+  --zinc-400:    #A1A1AA;
+  --zinc-300:    #D4D4D8;
+  --white:       #FFFFFF;
+  --radius:      12px;
+  --radius-sm:   8px;
+  --font-ar:     'Cairo', 'Tajawal', sans-serif;
+  --font-en:     'Poppins', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+
+    @layer base {
+
+  .top-line {
+    background: linear-gradient(to right, transparent, var(--amber-dark), transparent);
+  }
+  .bottom-line {
+    background: linear-gradient(to right, transparent, var(--zinc-800), transparent);
+  }
+
+  /* Floating Buttons Visibility  */
+  .float-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .float-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Call Button Pulse Animation  */
+  .float-pulse {
+    animation: pulse-ring 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0    var(--amber-glow),  0 4px 20px var(--amber-glow); }
+    50%  { box-shadow: 0 0 0 10px transparent,         0 4px 20px var(--amber-glow); }
+    100% { box-shadow: 0 0 0 0    var(--amber-glow),  0 4px 20px var(--amber-glow); }
+  }
+
+}
+  }
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background:  var(--zinc-950);
+    color:       var(--white);
+    font-family: var(--font-ar);
+    direction:   rtl;
+    overflow-x:  hidden;
+  }
+
+  body.ltr {
+    direction:   ltr;
+    font-family: var(--font-en);
+  }
+}
