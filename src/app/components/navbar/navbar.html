@@ -41,7 +41,7 @@
         <li>
           <button
             (click)="navigateTo(link.fragment)"
-            class="px-3 py-2 text-sm text-(--zinc-400) [font-family:var(--font-ar)] font-medium rounded-lg transition-all duration-200 hover:text-(--white) hover:bg-(--zinc-800)"
+            class="px-3 py-2 text-sm text-(--zinc-400) [font-family:var(--font-ar)] font-medium rounded-lg transition-all duration-200 hover:text-(--white) hover:bg-(--zinc-800) cursor-pointer"
           >
             {{ languageService.tr(link.label) }}
           </button>
@@ -54,7 +54,7 @@
       <!--Arabic/Eng Toggle-->
       <button
         (click)="languageService.toggle()"
-        class="hidden sm:flex items-center px-3 py-1.5 rounded-full text-xs font-bold border border-(--zinc-300) text-(--zinc-300) [font-family:var(--font-en)] hover:border-(--amber) hover:text-(--amber) transition-all duration-200"
+        class="hidden sm:flex items-center px-3 py-1.5 rounded-full text-xs font-bold border border-(--zinc-300) text-(--zinc-300) [font-family:var(--font-en)] hover:border-(--amber) hover:text-(--amber) transition-all duration-200 cursor-pointer"
       >
         {{ languageService.isArabic() ? 'EN' : 'عر' }}
       </button>
@@ -62,7 +62,7 @@
       <!-- Call Now Button -->
       <a
         [href]="social.callUrl"
-        class="hidden bg-(--amber) sm:flex items-center gap-2 px-4 py-2 [font-family:var(--font-ar)] font-bold text-sm [box-shadow:0 4px 16px var(--amber-glow)] rounded-sm hover:bg-(--amber-light) transition-all duration-200"
+        class="hidden bg-(--amber) sm:flex items-center gap-2 px-4 py-2 [font-family:var(--font-ar)] font-bold text-sm [box-shadow:0 4px 16px var(--amber-glow)] rounded-sm hover:bg-(--amber-light) transition-all duration-200 cursor-pointer"
       >
         <span>📞</span>
         <span>{{ languageService.tKey('navCall') }}</span>
@@ -72,7 +72,7 @@
       <button
         (click)="onToggleMenu()"
         aria-label="Toggle menu"
-        class="md:hidden p-2 transition-colors duration-200 rounded-sm hover:bg-(--zinc-800)"
+        class="md:hidden p-2 transition-colors duration-200 rounded-sm hover:bg-(--zinc-800) cursor-pointer"
       >
         <div class="menuIcon">
           @if (!isMenuOpen()) {
@@ -95,7 +95,7 @@
       @for (link of navLinks; track link.id) {
         <button
           (click)="navigateTo(link.fragment)"
-          class="[font-family:var(--font-ar)] text-(--zinc-300) text-start w-full px-4 py-3 text-sm font-medium rounded-sm hover:text-(--white) hover:bg-(--zinc-800) transition-colors duration-200"
+          class="[font-family:var(--font-ar)] text-(--zinc-300) text-start w-full px-4 py-3 text-sm font-medium rounded-sm hover:text-(--white) hover:bg-(--zinc-800) transition-colors duration-200 cursor-pointer"
         >
           {{ languageService.tr(link.label) }}
         </button>
@@ -109,7 +109,7 @@
         <!-- Language Toggle  -->
         <button
           (click)="languageService.toggle()"
-          class="flex-1 py-2.5 text-sm text-(--zinc-300) border border-(--zinc-700) font-bold rounded-sm hover:border-(--amber) hover:text-(--amber) transition-all duration-200"
+          class="flex-1 py-2.5 text-sm text-(--zinc-300) border border-(--zinc-700) font-bold rounded-sm hover:border-(--amber) hover:text-(--amber) transition-all duration-200 cursor-pointer"
         >
           {{ languageService.isArabic() ? 'English' : 'العربية' }}
         </button>
@@ -117,7 +117,7 @@
         <!-- Call Now  -->
         <a
           [href]="social.callUrl"
-          class="bg-(--amber) text-(--black) flex-1 py-2.5 text-center font-bold text-sm rounded-sm hover:bg(--amber-light) transition-all duration-200"
+          class="bg-(--amber) text-(--black) flex-1 py-2.5 text-center font-bold text-sm rounded-sm hover:bg(--amber-light) transition-all duration-200 cursor-pointer"
         >
           {{ languageService.tKey('navCall') }}
         </a>

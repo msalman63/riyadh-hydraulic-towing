@@ -1,5 +1,5 @@
 import { ContactInfo }             from '../interfaces/contact-info';
-import { PHONE_NUMBER, SOCIAL }    from '../constants/app-constants';
+import { PHONE_NUMBER, WHATSAPP_NUMBER , SOCIAL }    from '../constants/app-constants';
 
 // ── Contact Info Cards ──────────────────────────
 // 4 items displayed in the contact section
@@ -14,7 +14,7 @@ export const CONTACT_DATA: ContactInfo[] = [
   {
     icon:  '💬',
     label: { ar: 'تواصل عبر واتساب',      en: 'WhatsApp Us'        },
-    value: { ar: PHONE_NUMBER,             en: PHONE_NUMBER         },
+    value: { ar: WHATSAPP_NUMBER,             en: WHATSAPP_NUMBER         },
     href:  SOCIAL.whatsappUrl,
   },
   {

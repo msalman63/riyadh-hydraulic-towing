@@ -16,8 +16,8 @@ export interface HomeStat {
 }
 
 export const HOME_STATS: HomeStat[] = [
-  { number: '+5000', label: { ar: 'سيارة تم نقلها',       en: 'Vehicles Towed'   } },
-  { number: '+10',   label: { ar: 'سنوات خبرة',            en: 'Years Experience' } },
+  { number: '500+', label: { ar: 'سيارة تم نقلها',       en: 'Vehicles Towed'   } },
+  { number: '5+',   label: { ar: 'سنوات خبرة',            en: 'Years Experience' } },
   { number: '24/7',  label: { ar: 'خدمة مستمرة',           en: 'Always On'        } },
   { number: '15',    label: { ar: 'دقيقة وقت الاستجابة',   en: 'Min Avg Response' } },
 ];
@@ -30,7 +30,7 @@ export const HOME_BADGES: HomeBadge[] = [
 
 export const WHY_DATA: WhyItem[] = [
   { id: 1, icon: '⚡',  stat: '15',    unit: { ar: 'دقيقة',       en: 'Min Response'   }, title: { ar: 'وقت استجابة سريع',      en: 'Fast Response Time'          } },
-  { id: 2, icon: '👷',  stat: '+20',   unit: { ar: 'سائق محترف',  en: 'Pro Drivers'    }, title: { ar: 'سائقون محترفون',         en: 'Professional Drivers'        } },
+  { id: 2, icon: '👷',  stat: '5+',   unit: { ar: 'سائق محترف',  en: 'Pro Drivers'    }, title: { ar: 'سائقون محترفون',         en: 'Professional Drivers'        } },
   { id: 3, icon: '🕐',  stat: '24/7',  unit: { ar: 'متاح دائماً', en: 'Always Open'    }, title: { ar: 'خدمة مستمرة',            en: 'Round-the-Clock Service'     } },
   { id: 4, icon: '💰',  stat: '✓',     unit: { ar: 'أسعار منافسة',en: 'Fair Pricing'   }, title: { ar: 'أسعار عادلة وشفافة',    en: 'Affordable & Transparent'    } },
   { id: 5, icon: '🛡️', stat: '100%',  unit: { ar: 'ضمان السلامة',en: 'Safety Promise' }, title: { ar: 'ضمان سلامة المركبة',    en: 'Vehicle Safety Guaranteed'   } },
@@ -46,11 +46,41 @@ export const COVERAGE_DATA: CoverageArea[] = [
 ];
 
 export const GALLERY_DATA: GalleryItem[] = [
-  { id: 1, emoji: '🚛', span: 'wide',   label: { ar: 'سطحة هيدروليكية — عملية نقل', en: 'Hydraulic Flatbed Operation' } },
-  { id: 2, emoji: '🏗️', span: 'single', label: { ar: 'رافعة هيدروليكية',             en: 'Hydraulic Crane Lift'        } },
-  { id: 3, emoji: '🚘', span: 'single', label: { ar: 'نقل سيارة فارهة',              en: 'Luxury Car Transport'         } },
-  { id: 4, emoji: '🛻', span: 'single', label: { ar: 'سطحة مسطحة في الطريق',         en: 'Flatbed on Highway'           } },
-  { id: 5, emoji: '🚨', span: 'single', label: { ar: 'إنقاذ حادث مروري',             en: 'Accident Recovery'            } },
+  {
+    id: 1,
+    span: 'wide',
+    emoji: '🚛',
+    imageUrl: 'images/gallery/lamborghini-riyadh.jpeg',
+    label: { ar: 'نقل لامبورغيني — وسط الرياض', en: 'Lamborghini Transport — Riyadh' }
+  },
+  {
+    id: 2,
+    span: 'single',
+    emoji: '🚙',
+    imageUrl: 'images/gallery/range-rover-loading.jpeg',
+    label: { ar: 'رنج روفر — عملية تحميل ليلية', en: 'Range Rover — Night Loading Operation' }
+  },
+  {
+    id: 3,
+    span: 'single',
+    emoji: '🚗',
+    imageUrl: 'images/gallery/camaro-mosque-night.jpeg',
+    label: { ar: 'كامارو — خدمة ليلية احترافية', en: 'Camaro — Professional Night Service' }
+  },
+  {
+    id: 4,
+    span: 'single',
+    emoji: '🚛',
+    imageUrl: 'images/gallery/fleet-trucks-daytime.jpeg',
+    label: { ar: 'أسطولنا — جاهزون على مدار الساعة', en: 'Our Fleet — Ready 24/7' }
+  },
+  {
+    id: 5,
+    span: 'single',
+    emoji: '🏎️',
+    imageUrl: 'images/gallery/rollsroyce-showroom-delivery.jpeg',
+    label: { ar: 'رولز رويس — تسليم من المعرض', en: 'Rolls Royce — Showroom Delivery' }
+  },
 ];
 
 export const ABOUT_FEATURES: AboutFeature[] = [

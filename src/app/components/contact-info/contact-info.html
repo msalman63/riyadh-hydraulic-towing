@@ -123,14 +123,16 @@
             <span>{{ languageService.tKey('contactBtnCall') }}</span>
           </a>
 
-          <!-- WhatsApp — secondary -->
+                    <!-- WhatsApp -->
           <a
             [href]="social.whatsappUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-transparent w-full flex items-center justify-center gap-3 py-4 font-bold text-(--white) [font-family: var(--font-ar)] vorder-2 border-(--zinc-700) text-base
-                   rounded-(--radius) hover:border-[#25D366] hover:text-[#25D366] hpver:-translate-y-0.5 transition-all duration-200 active:scale-95">
-            <span class="text-xl">💬</span>
+            class="flex items-center justify-center gap-3 py-3 font-bold text-sm [font-family:var(--font-ar)] bg-transparent text-(--white) border-2 border-(--zinc-700) rounded-sm hover:border-[#25D366] hover:text-[#25D366] hover:-translate-y-0.5 transition-all duration-200 active:scale-95"
+          >
+            <span>
+              <img src="images/icons/whatsapp-icon.svg" alt="WhatsApp" class="w-7 h-7"
+            /></span>
             <span>{{ languageService.tKey('contactBtnWa') }}</span>
           </a>
 
