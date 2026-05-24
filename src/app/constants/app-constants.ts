@@ -1,5 +1,5 @@
 export const PHONE_NUMBER    = '+966505674583';
-export const WHATSAPP_NUMBER = '923348728475';
+export const WHATSAPP_NUMBER = '+966505674583';
 
 export const BRAND = {
   nameAr:      'سطحة هيدروليك نقل سيارات الرياض',
