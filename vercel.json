@@ -1,4 +1,6 @@
 {
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/riyadh-hydraulic-towing/browser",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
