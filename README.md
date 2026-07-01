@@ -1,23 +1,53 @@
-# Riyadh Hydraulic Towing — سطحة هيدروليك الرياض
+# سطحة هيدروليك الرياض — Riyadh Hydraulic Towing
 
-Production website for a hydraulic towing service based in Riyadh, Saudi Arabia.
+> Production towing service website — bilingual Arabic/English SPA built with Angular 21 + Tailwind CSS v4.
+
+🌐 **Live:** [riyadhsatha24.com](https://riyadhsatha24.com)
+
+---
+
+## Screenshots
+
+### Desktop — Homepage
+![Homepage](screenshots/riyadh1.jpeg)
+
+### Desktop — About Us
+![About Us](screenshots/riyadh2.jpeg)
+
+### Gallery Section
+![Gallery](screenshots/riyadh4.jpeg)
+
+### Mobile — Arabic (RTL)
+![Mobile Arabic](screenshots/riyadh3.jpeg)
+
+### Mobile — English (LTR)
+![Mobile English](screenshots/riyadh5.jpeg)
+
+---
 
 ## Stack
 
-- Angular 21 (standalone components, signals)
-- Tailwind CSS v4
-- TypeScript
-- Deployed on Vercel
+| | |
+|---|---|
+| Framework | Angular 21 — standalone components, signals |
+| Styling | Tailwind CSS v4 + CSS variables |
+| Language | TypeScript |
+| Hosting | Vercel |
+
+---
 
 ## Features
 
-- Bilingual — Arabic (RTL) + English (LTR)
-- Mobile-first, fully responsive
-- Smooth scroll SPA — no routing
+- Bilingual Arabic / English with full RTL support
+- Mobile-first responsive design
+- Single page — smooth scroll navigation
 - Language switcher with localStorage persistence
 - Floating WhatsApp + Call buttons
 - Google Maps embed
-- SEO optimized meta tags
+- SEO meta tags + Open Graph
+- Pre-rendered HTML — Google indexes full content
+
+---
 
 ## Structure
 
@@ -43,16 +73,20 @@ src/app/
 └── constants/
 ```
 
-## Local Development
+---
+
+## Getting Started
 
 ```bash
 npm install
 ng serve
 ```
 
-Navigate to `http://localhost:4200`
+Open `http://localhost:4200`
 
-## Production Build
+---
+
+## Build
 
 ```bash
 ng build --configuration production
@@ -60,12 +94,17 @@ ng build --configuration production
 
 Output → `dist/riyadh-hydraulic-towing/browser`
 
+---
+
 ## Deployment
 
-Hosted on Vercel. Every push to `main` triggers an automatic redeploy.
+Hosted on Vercel — push to `main` triggers automatic redeploy.
+
+---
 
 ## Notes
 
-- All colors reference CSS variables defined in `styles.css`
-- Translations managed via `TRANSLATIONS` constant — no i18n library
-- Data is fully typed — ready for Supabase migration later
+- All colors use CSS variables from `styles.css` — no hardcoded values
+- Translations live in `translation.data.ts` — no external i18n library
+- Static data is fully typed — ready for Supabase migration
+- Google Search Console verified and sitemap submitted
